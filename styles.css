@@ -1,0 +1,150 @@
+/* Reset and base styling */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --dark-purple: #110815;
+  --accent-color: #00ffcc;
+  --accent-dark: #0077ff;
+  --text-light: #ffffff;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  height: 100vh;
+  background-color: var(--dark-purple);
+  color: var(--text-light);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.4s ease-in-out;
+  text-align: center;
+}
+
+/* Card-style container */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Heading */
+.title {
+  font-size: 2.4rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: var(--text-light);
+}
+
+/* Hex code info */
+.bg-information-container {
+  font-size: 1.3rem;
+  margin-bottom: 30px;
+}
+
+#bg-hex-code {
+  font-weight: 600;
+  color: var(--accent-color);
+}
+
+/* Button styling */
+.btn {
+  background: linear-gradient(135deg, var(--accent-color), var(--accent-dark));
+  color: #000;
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 255, 204, 0.4);
+}
+#bg-hex-code {
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.float {
+  animation: float 3s ease-in-out infinite;
+}
+.particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #00ffcc;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.8;
+  animation: fadeOut 1s ease forwards, moveUp 1s ease-out forwards;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+}
+
+@keyframes moveUp {
+  to {
+    transform: translateY(-20px);
+  }
+}
+.particle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #00ffcc;
+  opacity: 0.8;
+  animation: moveParticle 1.5s ease-out forwards, fadeOut 1s ease-in-out forwards;
+  pointer-events: none;
+}
+
+@keyframes moveParticle {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  100% {
+    transform: scale(0.5) translate(100px, -100px);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
